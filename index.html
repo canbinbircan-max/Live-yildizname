@@ -1,1 +1,726 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canlı Fal Bakarım | 1 Soru 1 Dolar</title>
+  <meta name="description" content="Canlı webcamda gerçek falcıyla görüşün. 1 soru 1 dolar, hızlı cevap ve premium canlı fal seansı." />
+  <meta name="keywords" content="canlı fal, webcam fal, 1 dolar fal, gerçek falcı, online fal, aşk falı, tarot" />
+  <meta name="robots" content="index, follow" />
+  <style>
+    :root{
+      --bg:#120d1d;
+      --bg2:#1a1230;
+      --panel:#1d142d;
+      --card:rgba(255,255,255,0.04);
+      --text:#f6f0ff;
+      --muted:#d8cfe8;
+      --primary:#d6a3ff;
+      --secondary:#8a6de8;
+      --gold:#f0d77d;
+      --success:#77f0b1;
+      --warning:#ffd166;
+      --danger:#ff8a8a;
+    }
 
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      color: var(--text);
+      line-height:1.6;
+    }
+    a { text-decoration:none; color:inherit; }
+    img { max-width:100%; display:block; }
+    button { font:inherit; }
+
+    .container {
+      width:min(1180px, 92%);
+      margin:0 auto;
+    }
+
+    header {
+      position:sticky;
+      top:0;
+      z-index:50;
+      background: rgba(18,13,29,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav {
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .logo {
+      font-size:1.5rem;
+      font-weight:800;
+      letter-spacing:.08em;
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display:flex;
+      gap:24px;
+      color: var(--muted);
+      font-size:.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 24px;
+      border-radius:999px;
+      font-weight:800;
+      transition:.25s ease all;
+      cursor:pointer;
+      border:none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--gold), #f2d98f);
+      color:#1d1327;
+      box-shadow: 0 12px 30px rgba(240,215,125,.22);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 35px rgba(240,215,125,.28);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border:1px solid rgba(255,255,255,.15);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,.03);
+    }
+
+    .hero {
+      padding:60px 0 50px;
+    }
+
+    .hero-grid {
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:42px;
+      align-items:center;
+    }
+
+    .eyebrow {
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:.8rem;
+      font-weight:700;
+      letter-spacing:.05em;
+      background: rgba(214,163,255,.12);
+      border:1px solid rgba(214,163,255,.24);
+      color: var(--primary);
+      margin-bottom:18px;
+    }
+
+    h1 {
+      margin:0 0 18px;
+      font-size: clamp(2.6rem, 4vw, 4.5rem);
+      line-height:1.04;
+      letter-spacing:-.05em;
+    }
+
+    .subtitle {
+      font-size:1.08rem;
+      color: var(--muted);
+      margin:0 0 18px;
+      max-width:620px;
+    }
+
+    .price-hero {
+      font-size:3.2rem;
+      font-weight:900;
+      color: var(--gold);
+      line-height:1;
+      margin-bottom:22px;
+    }
+
+    .price-hero small {
+      font-size:1rem;
+      color: var(--muted);
+      font-weight:600;
+    }
+
+    .hero-buttons {
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      margin-bottom:30px;
+    }
+
+    .hero-stats {
+      display:flex;
+      flex-wrap:wrap;
+      gap:28px;
+    }
+
+    .stat strong {
+      display:block;
+      font-size:2rem;
+      color: var(--primary);
+      line-height:1.1;
+    }
+    .stat span {
+      color: var(--muted);
+      font-size:.88rem;
+    }
+
+    .visual-wrap {
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .video-card {
+      width:min(100%,440px);
+      background: linear-gradient(135deg, rgba(214,163,255,.12), rgba(138,109,232,.12));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:30px;
+      overflow:hidden;
+      box-shadow:0 25px 60px rgba(0,0,0,.28);
+    }
+
+    .video-top {
+      background: linear-gradient(135deg, #2b1845 0%, #1c112d 100%);
+      min-height: 380px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+
+    .video-top::before {
+      content:"📷";
+      font-size:70px;
+      opacity:0.28;
+    }
+
+    .video-bottom {
+      background: rgba(20,15,30,.8);
+      padding:18px 18px 22px;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+
+    .video-name {
+      font-size:1.1rem;
+      font-weight:700;
+      color: var(--primary);
+      margin-bottom:8px;
+    }
+
+    .online {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color: var(--success);
+      font-weight:700;
+      font-size:.84rem;
+    }
+
+    .online::before {
+      content:"";
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background: var(--success);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(119,240,177,.5); }
+      70% { box-shadow: 0 0 0 12px rgba(119,240,177,0); }
+      100% { box-shadow: 0 0 0 0 rgba(119,240,177,0); }
+    }
+
+    .section {
+      padding:80px 0;
+    }
+
+    .section-title {
+      margin:0 0 10px;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height:1.1;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin:0 0 36px;
+      font-size:1rem;
+      max-width:700px;
+    }
+
+    .cards {
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:24px;
+    }
+
+    .card {
+      background: var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:22px;
+      padding:26px 22px;
+      transition:.25s ease all;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(214,163,255,.35);
+    }
+
+    .icon {
+      width:56px;
+      height:56px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background: rgba(214,163,255,.12);
+      border:1px solid rgba(214,163,255,.2);
+      color: var(--primary);
+      font-size:1.5rem;
+      margin-bottom:16px;
+    }
+
+    .card h3 {
+      margin:0 0 10px;
+      font-size:1.28rem;
+    }
+
+    .card p {
+      margin:0;
+      color: var(--muted);
+    }
+
+    .pricing-grid {
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:24px;
+      margin-top:26px;
+    }
+
+    .price-card {
+      position:relative;
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:22px;
+      padding:26px 20px 24px;
+      overflow:hidden;
+    }
+
+    .price-card.featured {
+      transform: scale(1.03);
+      border-color: rgba(214,163,255,.45);
+      background: linear-gradient(180deg, rgba(214,163,255,.08), rgba(255,255,255,.04));
+    }
+
+    .badge {
+      position:absolute;
+      right:18px;
+      top:18px;
+      background: linear-gradient(90deg, var(--gold), #fceca6);
+      color:#1a1226;
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:.72rem;
+    }
+
+    .tariff-name {
+      font-size:1.3rem;
+      font-weight:700;
+      color: var(--gold);
+      margin:18px 0 8px;
+    }
+
+    .amount {
+      font-size:3rem;
+      font-weight:900;
+      color: var(--text);
+      line-height:1.1;
+      margin-bottom:8px;
+    }
+
+    .amount span {
+      font-size:1rem;
+      color: var(--muted);
+      font-weight:600;
+    }
+
+    .price-note {
+      color: var(--muted);
+      font-size:.94rem;
+      margin-bottom:18px;
+    }
+
+    .pricing-list {
+      list-style:none;
+      padding:0;
+      margin:0 0 22px;
+    }
+
+    .pricing-list li {
+      display:flex;
+      gap:10px;
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.05);
+      color: var(--muted);
+      font-size:.96rem;
+    }
+
+    .pricing-list li::before {
+      content:"✓";
+      color: var(--success);
+      font-weight:800;
+    }
+
+    .reviews-grid {
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:22px;
+    }
+
+    .review {
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;
+      padding:22px;
+    }
+
+    .stars {
+      color: var(--gold);
+      letter-spacing:2px;
+      margin-bottom:10px;
+      display:block;
+      font-size:1.1rem;
+    }
+
+    .review p {
+      margin:0 0 14px;
+      color: var(--muted);
+      line-height:1.7;
+      font-style:italic;
+    }
+
+    .review strong {
+      color: var(--primary);
+    }
+
+    .legal-box {
+      background: rgba(255,209,102,.08);
+      border:1px solid rgba(255,209,102,.25);
+      border-radius:18px;
+      padding:24px;
+      margin-top:24px;
+    }
+
+    .legal-box h3 {
+      margin:0 0 12px;
+      color: var(--warning);
+      font-size:1.15rem;
+    }
+
+    .legal-box p {
+      margin:12px 0;
+      color: var(--muted);
+      line-height:1.7;
+      font-size:.96rem;
+    }
+
+    footer {
+      background: rgba(12,9,20,.6);
+      border-top:1px solid rgba(255,255,255,.08);
+      padding:32px 0 24px;
+      color: var(--muted);
+    }
+
+    .footer-grid {
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap:24px;
+      margin-bottom:24px;
+    }
+
+    .footer-col h4 {
+      color: var(--text);
+      margin:0 0 12px;
+      font-size:1rem;
+    }
+
+    .footer-col a {
+      display:block;
+      margin:8px 0;
+      color: var(--muted);
+    }
+
+    .footer-col a:hover {
+      color: var(--primary);
+    }
+
+    .copy {
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:18px;
+      text-align:center;
+      color: var(--muted);
+      font-size:.9rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .cards, .pricing-grid, .reviews-grid, .footer-grid { grid-template-columns:1fr; }
+      .nav-links { display:none; }
+    }
+
+    @media (max-width: 560px) {
+      .hero-buttons { flex-direction:column; }
+      .btn { width:100%; }
+      .price-hero { font-size:2.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">🔮 CANLİ FAL</div>
+      <nav class="nav-links">
+        <a href="#hizmetler">Hizmetler</a>
+        <a href="#fiyatlar">Fiyatlar</a>
+        <a href="#yorumlar">Yorumlar</a>
+        <a href="#uyari">Yasal Uyarı</a>
+      </nav>
+      <a href="#fiyatlar" class="btn btn-primary">Hemen Başla</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">🎯 1 SORU - 1 DOLAR</div>
+          <h1>Canlı Webcamda Gerçek Falcıyla Görüşün</h1>
+          <p class="subtitle">Aşk, iş ve yaşam sorularınızı gerçek bir falcıyla canlı olarak paylaşın.</p>
+
+          <div class="price-hero">$1 <small>/ soru</small></div>
+
+          <div class="hero-buttons">
+            <a href="#fiyatlar" class="btn btn-primary">Hemen Bağlan</a>
+            <a href="#hizmetler" class="btn btn-secondary">Hizmetler</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>5000+</strong>
+              <span>Müşteri</span>
+            </div>
+            <div class="stat">
+              <strong>4.9/5</strong>
+              <span>Memnuniyet</span>
+            </div>
+            <div class="stat">
+              <strong>24/7</strong>
+              <span>Canlı</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-wrap">
+          <div class="video-card">
+            <div class="video-top"></div>
+            <div class="video-bottom">
+              <div class="video-name">Ayşe Falcı</div>
+              <div class="online">Online - Hazır</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="hizmetler">
+      <div class="container">
+        <h2 class="section-title">Neden Biz?</h2>
+        <p class="section-subtitle">
+          Hızlı, samimi ve güvenli bir deneyim için doğru adrestesiniz.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">🎥</div>
+            <h3>Canlı Görüşme</h3>
+            <p>Gerçek falcıyla webcam üzerinden doğrudan görüşün ve sorularınızı net şekilde sorun.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">⚡</div>
+            <h3>Hızlı Cevap</h3>
+            <p>1 soru 1 dolar ile kısa, net ve anlaşılır yorumlar alın. Hemen kesin cevap.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">💬</div>
+            <h3>Samimi Yaklaşım</h3>
+            <p>Yalnızca "fal" değil, güvenli ve sıcak bir danışmanlık deneyimi yaşayın.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fiyatlar">
+      <div class="container">
+        <h2 class="section-title">Fiyatlar</h2>
+        <p class="section-subtitle">
+          İhtiyacınıza göre uygun paketi seçin.
+        </p>
+
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3 class="tariff-name">Hızlı Cevap</h3>
+            <div class="amount">$1 <span>/ soru</span></div>
+            <div class="price-note">Tek soru, net ve hızlı yorum</div>
+            <ul class="pricing-list">
+              <li>1 soru</li>
+              <li>Hızlı cevap</li>
+              <li>Güvenli ödeme</li>
+            </ul>
+            <a href="#uyari" class="btn btn-primary" style="width:100%;">Başla</a>
+          </article>
+
+          <article class="price-card featured">
+            <div class="badge">POPÜLER</div>
+            <h3 class="tariff-name">Premium Canlı Seans</h3>
+            <div class="amount">$10 <span>/ 10 dakika</span></div>
+            <div class="price-note">Gerçek falcıyla canlı webcam görüşmesi</div>
+            <ul class="pricing-list">
+              <li>10 dakikalık görüşme</li>
+              <li>Canlı webcam</li>
+              <li>Detaylı yorum</li>
+              <li>Birden fazla soru</li>
+            </ul>
+            <a href="#uyari" class="btn btn-primary" style="width:100%;">Başla</a>
+          </article>
+
+          <article class="price-card">
+            <h3 class="tariff-name">VIP Danışmanlık</h3>
+            <div class="amount">$25 <span>/ 30 dakika</span></div>
+            <div class="price-note">Derinlemesine kişisel analiz</div>
+            <ul class="pricing-list">
+              <li>30 dakika canlı görüşme</li>
+              <li>Kişisel analiz</li>
+              <li>Özel rehberlik</li>
+              <li>Uzun çözüm</li>
+            </ul>
+            <a href="#uyari" class="btn btn-primary" style="width:100%;">Başla</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="yorumlar">
+      <div class="container">
+        <h2 class="section-title">Müşteri Yorumları</h2>
+        <p class="section-subtitle">
+          Gerçek geri bildirimlerle güven ve kalite hissi yaratıyoruz.
+        </p>
+
+        <div class="reviews-grid">
+          <article class="review">
+            <span class="stars">★★★★★</span>
+            <p>“Çok samimi ve açıklayıcıydı. 1 dolar ile başlayan bu hizmet çok iyi oldu.”</p>
+            <strong>— Elif K.</strong>
+          </article>
+
+          <article class="review">
+            <span class="stars">★★★★★</span>
+            <p>“Canlı görüşme çok etkiliydi. Aşk falı için gerçekten doğru yorumlar aldım.”</p>
+            <strong>— Mert Y.</strong>
+          </article>
+
+          <article class="review">
+            <span class="stars">★★★★★</span>
+            <p>“Hızlı ve güvenli. Falcı çok ilgiliydi ve yorumları anlaşılırdı.”</p>
+            <strong>— Ayşe T.</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="uyari">
+      <div class="container">
+        <div class="legal-box">
+          <h3>Yasal Uyarı</h3>
+          <p>
+            Bu web sitesinde sunulan hizmetler <strong>eğlence amaçlı</strong> olarak sunulmaktadır.
+            Fal bakımı, astroloji, tarot ve benzeri uygulamalar bilimsel olarak kanıtlanmış bir
+            tıbbi, hukuki veya finansal tavsiye niteliği taşımaz.
+          </p>
+          <p>
+            Alınan bilgiler ve yorumlar kişisel değerlendirmeler niteliğindedir; yaşamınızla ilgili
+            önemli kararlar alırken mutlaka profesyonel uzman görüşü alınız.
+          </p>
+          <p>
+            Müşteri verileri gizliliğe uygun şekilde korunur ve paylaşılmaz. Seanslar güvenli
+            şekilde yürütülür ve kişisel bilgilerinize özen gösterilir.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Hızlı Bağlantılar</h4>
+          <a href="#hizmetler">Hizmetler</a>
+          <a href="#fiyatlar">Fiyatlar</a>
+          <a href="#yorumlar">Yorumlar</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kurumsal</h4>
+          <a href="#uyari">Yasal Uyarı</a>
+          <a href="#">Gizlilik</a>
+          <a href="#">Kullanım Şartları</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>İletişim</h4>
+          <a href="mailto:info@canlifal.com">info@canlifal.com</a>
+          <a href="#">WhatsApp</a>
+          <a href="#">Instagram</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Hakkımızda</h4>
+          <p>Canlı fal bakarım ve danışmanlık hizmetleriyle güvenli, samimi ve net yorumlar sunar.</p>
+        </div>
+      </div>
+
+      <div class="copy">
+        © 2026 Canlı Fal Bakarım. Tüm hakları saklıdır.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
